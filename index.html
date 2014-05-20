@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="UTF-8">
+	<title>Product management page</title>
+	<link href="css/style.css" type="text/css">
+</head>
+<body>
+
+	<h1>Product management page</h1>
+
+	<div>
+		<form id="product" name="create_product_form">
+			<p>
+				<label for="product_title">Title</label>
+				<input id="product_title" type="text" name="title">
+			</p>
+			<p>
+				<label for="product_price">Price</label>
+				<input id="product_price" type="text" name="price">
+			</p>
+			<p>
+				<input type="submit" value="Add Product">
+			</p>
+		</form>
+		<table>
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>Sku</th>
+					<th>Price</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody id="products-container">
+			</tbody>
+		</table>
+	</div>
+
+	<script type="text/javascript" src="js/application.js"></script>
+</body>
+</html>
