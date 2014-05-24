@@ -30,10 +30,10 @@
 		}
 	};
 
-	function Product(title, price) {
+	function Product(title, price, id) {
 		var self = this;
 
-		self.id = utils.generateId();
+		self.id = id || utils.generateId();
 		self.title = title;
 		self.price = price;
 	}
@@ -49,8 +49,8 @@
 		self.addProduct = function () {};
 		self.editProduct = function (product) {
 			self.id(product.id);
-			self.title = product.title;
-			self.price = product.price;
+			self.title(product.title);
+			self.price(product.price);
 		};
 		self.removeProduct = function (product) {
 			if (window.confirm("Are you sure?")) {
@@ -59,13 +59,12 @@
 		};
 		self.formSubmit = function (formElement) {
 			if (self.id()) {
-				self.id = ko.observable("");
-				self.title = ko.observable("");
-				self.price = ko.observable("");
+
 			} else {
 				self.products.push(new Product(self.title(), self.price()));
 			}
 
+			self.id("");
 			self.title("");
 			self.price("");
 
