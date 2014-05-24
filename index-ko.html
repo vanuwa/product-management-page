@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="UTF-8">
+	<title>Product management page</title>
+	<link href="css/style.css" type="text/css">
+	<script type="text/javascript" src="vendor/knockout-3.1.0.js"></script>
+</head>
+<body>
+
+	<h1>Product management page</h1>
+
+	<div>
+		<form id="product" name="create_product_form" data-bind="submit: formSubmit">
+			<p>
+				<label for="product_id">Id</label>
+				<input id="product_id" type="text" name="id" disabled="disabled">
+			</p>
+			<p>
+				<label for="product_title">Title</label>
+				<input id="product_title" type="text" name="title" data-bind="value: title">
+			</p>
+			<p>
+				<label for="product_price">Price</label>
+				<input id="product_price" type="text" name="price" data-bind="value: price">
+			</p>
+			<p>
+				<input type="submit" value="Create/Update Product">
+			</p>
+		</form>
+
+		<table>
+			<thead>
+			<tr>
+				<th>Title</th>
+				<th>Sku</th>
+				<th>Price</th>
+				<th>Actions</th>
+			</tr>
+			</thead>
+			<tbody data-bind="foreach: products">
+				<tr>
+					<td data-bind="text: title"></td>
+					<td data-bind="text: id"></td>
+					<td data-bind="text: price"></td>
+					<td>
+						<button data-bind="click: $root.editProduct">Edit</button>
+						<button data-bind="click: $root.removeProduct">Remove</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+
+	<script type="text/javascript" src="js/application-ko.js"></script>
+</body>
+</html>
